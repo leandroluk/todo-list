@@ -21,6 +21,19 @@
         "<node_internals>/**"
       ],
       "type": "node"
+    },
+    {
+      "name": "mocha",
+      "request": "launch",
+      "runtimeArgs": [
+        "run-script",
+        "test"
+      ],
+      "runtimeExecutable": "npm",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node"
     }
   ],
   "compounds": []

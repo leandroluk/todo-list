@@ -3,13 +3,13 @@ import { AddTodo, EditTodo, Indexable } from '../../types'
 import { runSchema } from './_validator'
 
 export const todosValidator = {
-  async paramsId(value: object): Promise<Indexable> {
+  async paramsId(value: any): Promise<Indexable> {
     return await runSchema(Joi.object<Indexable>({
       id: Joi.number().required().integer().positive()
     }), value)
   },
 
-  async bodyAdd(value: object): Promise<AddTodo> {
+  async bodyAdd(value: any): Promise<AddTodo> {
     return await runSchema(Joi.object<AddTodo>({
       description: Joi.string().required(),
       isDone: Joi.boolean().default(false),
@@ -17,7 +17,7 @@ export const todosValidator = {
     }), value)
   },
 
-  async bodyEdit(value: object): Promise<EditTodo> {
+  async bodyEdit(value: any): Promise<EditTodo> {
     return await runSchema(Joi.object<EditTodo>({
       description: Joi.string(),
       isDone: Joi.boolean()

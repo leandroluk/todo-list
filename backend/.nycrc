@@ -2,9 +2,8 @@
   "extends": "@istanbuljs/nyc-config-typescript",
   "report-dir": ".coverage",
   "include": [
-    "src/app/models",
-    "src/app/services",
-    "src/app/controllers"
+    "src/api",
+    "src/app"
   ],
   "reporter": [
     "text",
