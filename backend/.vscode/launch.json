@@ -1,0 +1,27 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "name": "nodemon",
+      "program": "${workspaceFolder}/src",
+      "request": "launch",
+      "restart": true,
+      "args": [
+        "--ext",
+        "ts",
+        "--watch",
+        "src",
+        "--exec",
+        "ts-node"
+      ],
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/nodemon",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node"
+    }
+  ],
+  "compounds": []
+}

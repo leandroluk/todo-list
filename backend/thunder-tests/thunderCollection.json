@@ -1,0 +1,17 @@
+[
+  {
+    "_id": "d4d9d21f-e60f-4eec-af31-bdbb2f90c735",
+    "colName": "todo-list",
+    "created": "2022-04-15T20:02:06.616Z",
+    "sortNum": 10000,
+    "folders": [
+      {
+        "_id": "81ae840b-d564-4311-9469-34e5b6523d29",
+        "name": "todos",
+        "containerId": "",
+        "created": "2022-04-15T20:02:16.326Z",
+        "sortNum": 10000
+      }
+    ]
+  }
+]

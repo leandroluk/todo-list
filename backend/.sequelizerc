@@ -1,0 +1,10 @@
+const path = require('path')
+
+const basePath = path.resolve(__dirname, '.sequelize')
+
+module.exports = {
+  url: process.env.MYSQL_URI || 'mysql://root:root@localhost:3306/db',
+  'models-path': path.resolve(__dirname, 'src', 'db'),
+  'seeders-path': path.resolve(basePath, 'seeders'),
+  'migrations-path': path.resolve(basePath, 'migrations')
+}
