@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:5
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "db"
+    ports:
+      - 10000:3306
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "-p", "root"]
+      timeout: 10s
+      retries: 10
+
+  sequelize-cli:
+    image: node:latest
+    depends_on:
+      - mysql
+    command
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - 10001:27017
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+  backend:
+    container_name: backend
+    build: ./backend/Dockerfile
+    ports:
+      - 10002:3000

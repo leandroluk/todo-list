@@ -1,0 +1,34 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "frontend",
+      "request": "launch",
+      "type": "chrome",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/frontend/src"
+    },
+    {
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "name": "backend",
+      "program": "${workspaceFolder}/backend/src",
+      "request": "launch",
+      "restart": true,
+      "args": [
+        "--ext",
+        "ts",
+        "--watch",
+        "backend/src",
+        "--exec",
+        "ts-node"
+      ],
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/nodemon",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node"
+    }
+  ],
+  "compounds": []
+}

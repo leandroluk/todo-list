@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node -r ts-node/register src",
-    "lint": "eslint --fix",
+    "lint": "eslint . --fix",
     "watch": "nodemon --ext ts --watch src --exec ts-node src",
     "db:migrate": "sequelize db:drop && sequelize db:create && sequelize db:migrate",
     "test": "mocha -r ts-node/register tests/**/*.test.ts --exit -t 60000",

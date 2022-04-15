@@ -1,5 +1,5 @@
 export class InvalidQueryError extends Error {
-  constructor(message: string = 'invalid query') {
+  constructor(message = 'invalid query') {
     super(message)
     this.name = 'InvalidQueryError'
   }
