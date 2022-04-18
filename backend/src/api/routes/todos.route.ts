@@ -14,7 +14,7 @@ todosRoute.put('/:id', async (req, res) => {
 })
 
 todosRoute.delete('/:id', async (req, res) => {
-  await todosController.get(req.params)
+  await todosController.remove(req.params)
   res.sendStatus(204)
 })
 
