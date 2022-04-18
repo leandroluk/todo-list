@@ -12,8 +12,7 @@ export const todosValidator = {
   async bodyAdd(value: any): Promise<AddTodo> {
     return await runSchema(Joi.object<AddTodo>({
       description: Joi.string().required(),
-      isDone: Joi.boolean().default(false),
-      isFeatured: Joi.boolean().default(false)
+      isDone: Joi.boolean().default(false)
     }), value)
   },
 

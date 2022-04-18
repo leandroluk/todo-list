@@ -23,10 +23,6 @@ module.exports = {
         type: Sequelize.TINYINT,
         allowNull: false
       },
-      isFeatured: {
-        type: Sequelize.TINYINT,
-        allowNull: false
-      },
     });
   },
   async down(queryInterface) {

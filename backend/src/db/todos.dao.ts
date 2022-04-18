@@ -23,10 +23,6 @@ export default (db: Sequelize) => db.define<Model<Todo, Omit<Todo, keyof Indexab
   isDone: {
     type: DataTypes.TINYINT,
     allowNull: false
-  },
-  isFeatured: {
-    type: DataTypes.TINYINT,
-    allowNull: false
   }
 }, {
   timestamps: false,
