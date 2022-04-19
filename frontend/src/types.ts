@@ -10,7 +10,6 @@ export type Entity = Indexable & {
 export type Todo = Entity & {
   description: string
   isDone: number
-  isFeatured: number
 }
 
 export type AddTodo = Omit<Todo, keyof Entity>
