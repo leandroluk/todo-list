@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "rimraf dist && tsc -p ./tsconfig-build.json",
+    "serve": "npm run build && node ./dist",
     "start": "node -r ts-node/register src",
     "lint": "eslint . --fix",
     "watch": "nodemon --ext ts --watch src --exec ts-node src",
-    "db:migrate": "sequelize db:drop && sequelize db:create && sequelize db:migrate",
+    "db": "sequelize db:drop && sequelize db:create && sequelize db:migrate",
     "test": "mocha -r ts-node/register tests/**/*.test.ts --exit -t 60000",
     "test:coverage": "nyc npm run test"
   },
@@ -34,6 +36,7 @@
     "mocha": "^9.2.2",
     "nodemon": "^2.0.15",
     "nyc": "^15.1.0",
+    "rimraf": "^3.0.2",
     "sequelize-cli": "^6.4.1",
     "sinon": "^13.0.2",
     "ts-jest": "^27.1.4",
