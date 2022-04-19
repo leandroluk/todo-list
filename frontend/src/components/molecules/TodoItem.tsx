@@ -9,7 +9,7 @@ type Props = {
   todo: Todo
 }
 
-export function TodoItem ({ todo }: Props) {
+export function TodoItem({ todo }: Props) {
   const todosState = todosStore()
 
   const date = (field: any) => format(new Date(field), DATE_FORMAT)

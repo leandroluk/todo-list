@@ -3,7 +3,7 @@ import { todosStore } from '../../store'
 import { EmptyTodos } from '../atoms'
 import { TodoItem } from './TodoItem'
 
-export function TodosList () {
+export function TodosList() {
   const todos = todosStore(state => state.todos)
 
   return (

@@ -2,7 +2,7 @@ import { Schema, ValidationError } from 'joi'
 import { useCallback } from 'react'
 import { FieldErrors } from 'react-hook-form'
 
-export const useJoiResolver = <T> (validationSchema: Schema<T>) => useCallback(
+export const useJoiResolver = <T>(validationSchema: Schema<T>) => useCallback(
   async (data: T) => {
     const result: { values: T, errors: FieldErrors } = {
       values: {} as T,

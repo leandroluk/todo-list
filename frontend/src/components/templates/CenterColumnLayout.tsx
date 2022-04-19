@@ -5,7 +5,7 @@ type Props = {
   children: ReactNode
 }
 
-export function CenterColumnLayout ({
+export function CenterColumnLayout({
   children
 }: Props) {
   return (

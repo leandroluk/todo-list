@@ -20,7 +20,7 @@ const validationSchema = Joi.object<Pick<Todo, 'description'>>({
 
 const initialState = { description: '' }
 
-export function TodosForm () {
+export function TodosForm() {
   const todosState = todosStore()
   const resolver = useJoiResolver(validationSchema)
   const {

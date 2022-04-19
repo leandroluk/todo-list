@@ -1,9 +1,26 @@
-import { Divider, Flex, Heading } from '@chakra-ui/react'
+import { Divider, Flex, Heading, useToast } from '@chakra-ui/react'
+import { useEffect } from 'react'
+import { todosStore } from '../../store'
 import { TodosList } from '../molecules'
 import { TodosForm } from '../organisms'
 import { CenterColumnLayout } from '../templates'
 
-export function TodosPage () {
+export function TodosPage() {
+  const todosState = todosStore()
+  const toast = useToast()
+
+  useEffect(() => {
+    if (todosState.error) {
+      console.log(todosState.error)
+      toast({
+        description: todosState.error.message,
+        status: 'error',
+        duration: 9000,
+        isClosable: true
+      })
+    }
+  }, [todosState.error])
+
   return (
     <CenterColumnLayout>
       <Flex
