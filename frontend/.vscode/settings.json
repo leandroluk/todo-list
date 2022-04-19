@@ -25,7 +25,6 @@
   // typescript
   "typescript.format.semicolons": "remove",
   "typescript.preferences.quoteStyle": "single",
-  "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
   // barrelr
   "barrelr.lineEnding": "LF",
   "barrelr.useDoubleQuotes": false,
