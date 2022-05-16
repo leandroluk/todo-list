@@ -7,7 +7,7 @@
     "install": "npm i --prefix backend && npm i --prefix frontend",
     "prestart": "npm --prefix backend run db",
     "start": "concurrently \"cd backend && npm start\" \"cd frontend && npm start\"",
-    "compose": "docker-compose down && docker-compose up --force-recreate"
+    "compose": "docker-compose down && docker-compose up --force-recreate --build"
   },
   "repository": {
     "type": "git",

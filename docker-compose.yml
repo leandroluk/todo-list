@@ -54,6 +54,8 @@ services:
     container_name: frontend
     build: ./frontend
     depends_on:
+      mysql:
+        condition: service_healthy
       backend:
         condition: service_healthy
     environment:
