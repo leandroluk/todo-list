@@ -4,35 +4,59 @@ services:
   mysql:
     image: mysql:5
     container_name: mysql
+    volumes:
+      - ./.mysql:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: "root"
-      MYSQL_DATABASE: "db"
+      MYSQL_DATABASE: "todos"
     ports:
-      - 10000:3306
+      - 3306:3306
     healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "-p", "root"]
+      test:
+        [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-h",
+          "localhost",
+          "-proot"
+        ]
       timeout: 10s
       retries: 10
 
   sequelize-cli:
-    image: node:latest
+    container_name: sequelize-cli
+    build: ./backend
     depends_on:
-      - mysql
-    command
+      mysql:
+        condition: service_healthy
+    environment:
+      MYSQL_URI: "mysql://root:root@mysql:3306/todos"
+    entrypoint: npm run db
 
-  mongo:
-    image: mongo
-    container_name: mongo
-    ports:
-      - 10001:27017
-    healthcheck:
-      test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
-      interval: 10s
-      timeout: 10s
-      retries: 5
-      start_period: 10s
   backend:
     container_name: backend
-    build: ./backend/Dockerfile
+    build: ./backend
     ports:
-      - 10002:3000
+      - 3001:3001
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      API_PORT: 3001
+      MYSQL_URI: "mysql://root:root@mysql:3306/todos"
+    healthcheck:
+      test: [ "CMD", "curl", "http://localhost:3001/health" ]
+      timeout: 10s
+      retries: 10
+
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    depends_on:
+      backend:
+        condition: service_healthy
+    environment:
+      API_URI: "http://localhost:3001"
+    ports:
+      - 3000:80

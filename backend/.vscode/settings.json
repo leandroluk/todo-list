@@ -41,5 +41,13 @@
   // git
   "git.inputValidation": "off",
   // thunder-client
-  "thunder-client.saveToWorkspace": true
+  "thunder-client.saveToWorkspace": true,
+  // dockerfile
+  "[dockerfile]": {
+    "editor.detectIndentation": false,
+    "editor.tabSize": 4,
+    "editor.quickSuggestions": {
+      "strings": true
+    }
+  }
 }

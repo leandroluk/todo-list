@@ -6,6 +6,6 @@ export default {
     port: Number(env.API_PORT || 3001)
   },
   mysql: {
-    uri: env.MYSQL_URI || 'mysql://root:root@localhost:3306/db'
+    uri: env.MYSQL_URI || 'mysql://root:root@localhost:3306/todos'
   }
 }

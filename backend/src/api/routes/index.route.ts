@@ -3,7 +3,7 @@ import db from '../../db'
 
 const indexRoute = Router()
 
-indexRoute.get('/', async (_, res) => {
+indexRoute.get('/health', async (_, res) => {
   await db.authenticate()
   res.send()
 })

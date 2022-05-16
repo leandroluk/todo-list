@@ -32,4 +32,11 @@
   "barrelr.useSemiColons": false,
   // git
   "git.inputValidation": "off",
+  "[dockerfile]": {
+    "editor.detectIndentation": false,
+    "editor.tabSize": 4,
+    "editor.quickSuggestions": {
+      "strings": true
+    }
+  }
 }

@@ -4,7 +4,7 @@ WORKDIR /app
 ENV API_URI="http://localhost:3001" \
     REACT_APP_API_URI=${API_URI}
 COPY . .
-RUN yarn install && yarn build
+RUN npm install && npm run build
 # runner
 FROM nginx:alpine
 WORKDIR /usr/share/nginx/html

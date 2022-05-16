@@ -1,7 +1,6 @@
 FROM node
 WORKDIR /app
-ENV SCRIPT="serve" \
-    NODE_ENV="production" \
-    MYSQL_URI="mysql://root:root@127.0.0.1:3306/todos"
+ENV API_PORT=3001 \
+    MYSQL_URI="mysql://root:root@localhost:3306/todos"
 COPY . .
-CMD npm run ${SCRIPT}
+ENTRYPOINT [ "npm", "start" ]

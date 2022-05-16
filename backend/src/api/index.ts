@@ -4,6 +4,7 @@ import {
   bodyParserMiddleware,
   corsMiddleware,
   errorHandlerMiddleware,
+  loggerMiddleware,
   urlParserMiddleware
 } from './middlewares'
 import {
@@ -16,6 +17,7 @@ const api = express()
 api.use(bodyParserMiddleware)
 api.use(corsMiddleware)
 api.use(urlParserMiddleware)
+api.use(loggerMiddleware)
 
 // routes
 api.use('/todos', todosRoute)
