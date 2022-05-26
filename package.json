@@ -7,6 +7,7 @@
     "install": "npm i --prefix backend && npm i --prefix frontend",
     "prestart": "npm --prefix backend run db",
     "start": "concurrently \"cd backend && npm start\" \"cd frontend && npm start\"",
+    "backend:db": "cd backend && npm run db",
     "backend:test": "cd backend && npm run test",
     "compose": "docker-compose down && docker-compose up --force-recreate --build"
   },
@@ -24,8 +25,9 @@
   "devDependencies": {
     "@types/node": "^17.0.33",
     "concurrently": "^7.2.0",
-    "nodemon": "^2.0.15",
+    "nodemon": "^2.0.16",
     "ts-node": "^10.7.0",
+    "tsconfig-paths": "^4.0.0",
     "typescript": "^4.6.3"
   }
 }

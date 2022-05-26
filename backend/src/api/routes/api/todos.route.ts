@@ -23,7 +23,7 @@ todosRoute.post('/', async (req, res) => {
   res.status(201).json(result)
 })
 
-todosRoute.get('/', async (req, res) => {
+todosRoute.get('/', async (_req, res) => {
   const result = await todosController.list()
   res.json(result)
 })
