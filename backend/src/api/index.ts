@@ -1,29 +1,20 @@
+import compression from 'compression'
 import express from 'express'
 import 'express-async-errors'
-import {
-  bodyParserMiddleware,
-  corsMiddleware,
-  errorHandlerMiddleware,
-  loggerMiddleware,
-  urlParserMiddleware
-} from './middlewares'
-import {
-  indexRoute, todosRoute
-} from './routes'
+import helmet from 'helmet'
+import { cors, errorHandler } from './middlewares'
+import routes from './routes'
 
 const api = express()
 
-// req middlewares
-api.use(bodyParserMiddleware)
-api.use(corsMiddleware)
-api.use(urlParserMiddleware)
-api.use(loggerMiddleware)
+api.use(express.json())
+api.use(express.urlencoded({ extended: true }))
+api.use(compression({ threshold: 0 }))
+api.use(helmet())
+api.use(cors)
 
-// routes
-api.use('/todos', todosRoute)
-api.use('/', indexRoute)
+api.use('/', routes)
 
-// res middlewares
-api.use(errorHandlerMiddleware)
+api.use(errorHandler)
 
 export default api

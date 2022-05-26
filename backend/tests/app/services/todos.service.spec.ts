@@ -1,9 +1,9 @@
+import { todosModel } from '$/app/models'
+import { todosService } from '$/app/services'
+import { AddTodo, Todo } from '$/app/types'
 import { expect, use } from 'chai'
 import chaiAsPromised from 'chai-as-promised'
 import sinon from 'sinon'
-import { todosModel } from '../../../src/app/models'
-import { todosService } from '../../../src/app/services'
-import { AddTodo, Todo } from '../../../src/types'
 
 use(chaiAsPromised)
 

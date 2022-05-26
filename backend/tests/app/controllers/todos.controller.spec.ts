@@ -1,10 +1,10 @@
+import { todosController } from '$/app/controllers'
+import { todosService } from '$/app/services'
+import { AddTodo, EditTodo, Todo } from '$/app/types'
+import { todosValidator } from '$/app/validators'
 import { expect, use } from 'chai'
 import chaiAsPromised from 'chai-as-promised'
 import sinon from 'sinon'
-import { todosController } from '../../../src/app/controllers'
-import { todosService } from '../../../src/app/services'
-import { todosValidator } from '../../../src/app/validators'
-import { AddTodo, EditTodo, Todo } from '../../../src/types'
 
 use(chaiAsPromised)
 

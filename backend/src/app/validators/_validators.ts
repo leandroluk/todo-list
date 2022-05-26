@@ -1,12 +1,10 @@
-import { Schema, ValidationError } from 'joi'
+import { Schema } from 'joi'
 
-export async function runSchema<T>(schema: Schema<T>, value: object): Promise<T> {
-  try {
-    const result = await schema.validateAsync(value)
-    return result
-  } catch (_error) {
-    const error: ValidationError = _error as any
+export const runSchema = <T> (schema: Schema<T>) => async (unknown?: unknown): Promise<T> => {
+  const { error, value } = schema.validate(unknown)
+  if (error) {
     error.message = error.details[0].message
     throw error
   }
+  return value
 }

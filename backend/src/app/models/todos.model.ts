@@ -1,5 +1,5 @@
-import { TodosDAO } from '../../db'
-import { AddTodo, EditTodo, Todo } from '../../types'
+import { AddTodo, EditTodo, Todo } from '$/app/types'
+import { TodosDAO } from '$/db'
 
 export const todosModel = {
   async get (id: Todo['id']): Promise<Todo> {

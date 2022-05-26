@@ -1,5 +1,5 @@
+import { SequelizeModel } from '$/db/types'
 import { DataTypes, ModelAttributes, ModelOptions, Sequelize } from 'sequelize'
-import { SequelizeModel } from '../types'
 
 const schema: ModelAttributes = {
   id: {
@@ -29,6 +29,7 @@ const schema: ModelAttributes = {
 const options: ModelOptions = {
   timestamps: false,
   tableName: 'todos',
+  underscored: true
 }
 
 // const associate: SequelizeModel['associate'] = (models, model): void => {}

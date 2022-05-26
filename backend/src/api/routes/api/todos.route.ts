@@ -1,5 +1,5 @@
+import { todosController } from '$/app/controllers'
 import { Router } from 'express'
-import { todosController } from '../../app/controllers'
 
 const todosRoute = Router()
 

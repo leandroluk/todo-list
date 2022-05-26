@@ -3,9 +3,6 @@ version: '3'
 services:
   mysql:
     image: mysql:5
-    container_name: mysql
-    volumes:
-      - ./.mysql:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: "root"
       MYSQL_DATABASE: "todos"
@@ -15,19 +12,9 @@ services:
       test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-proot" ]
       timeout: 10s
       retries: 10
-
-  sequelize-cli:
-    container_name: sequelize-cli
-    build: ./backend
-    depends_on:
-      mysql:
-        condition: service_healthy
-    environment:
-      MYSQL_URI: "mysql://root:root@mysql:3306/todos"
-    entrypoint: npm run db
+      start_period: 10s
 
   backend:
-    container_name: backend
     build: ./backend
     ports:
       - 3001:3001
@@ -41,13 +28,11 @@ services:
       test: [ "CMD", "curl", "http://localhost:3001/health" ]
       timeout: 10s
       retries: 10
+    command: bash -c "npm run db && npm start"
 
   frontend:
-    container_name: frontend
     build: ./frontend
     depends_on:
-      mysql:
-        condition: service_healthy
       backend:
         condition: service_healthy
     environment:

@@ -1,6 +1,7 @@
 {
   "version": "0.2.0",
   "configurations": [
+    // frontend
     {
       "name": "frontend",
       "request": "launch",
@@ -8,6 +9,8 @@
       "url": "http://localhost:3000",
       "webRoot": "${workspaceFolder}/frontend/src"
     },
+    // frontend:test
+    // backend
     {
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
@@ -21,9 +24,23 @@
         "--watch",
         "backend/src",
         "--exec",
-        "ts-node"
+        "ts-node -r tsconfig-paths/register"
       ],
       "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/nodemon",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node"
+    },
+    // backend:test
+    {
+      "name": "backend:test",
+      "request": "launch",
+      "runtimeArgs": [
+        "run-script",
+        "backend:test"
+      ],
+      "runtimeExecutable": "npm",
       "skipFiles": [
         "<node_internals>/**"
       ],

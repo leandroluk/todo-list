@@ -1,10 +1,10 @@
+import { todosModel } from '$/app/models'
+import { AddTodo, Todo } from '$/app/types'
+import { TodosDAO } from '$/db'
 import { expect, use } from 'chai'
 import chaiAsPromised from 'chai-as-promised'
 import { Model } from 'sequelize'
 import sinon from 'sinon'
-import { todosModel } from '../../../src/app/models'
-import { TodosDAO } from '../../../src/db'
-import { AddTodo, Todo } from '../../../src/types'
 
 use(chaiAsPromised)
 
