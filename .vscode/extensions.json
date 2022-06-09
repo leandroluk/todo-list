@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "rangav.vscode-thunder-client",
+    "dbaeumer.vscode-eslint",
+    "ms-azuretools.vscode-docker",
+    "mikerhyssmith.ts-barrelr",
+    "vscode-icons-team.vscode-icons",
+    "redhat.vscode-yaml",
+    "eg2.vscode-npm-script"
+  ]
+}
