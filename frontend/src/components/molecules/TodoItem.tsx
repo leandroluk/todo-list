@@ -9,7 +9,7 @@ type Props = {
   todo: Todo
 }
 
-export function TodoItem({ todo }: Props) {
+export function TodoItem ({ todo }: Props) {
   const todosState = todosStore()
 
   const date = (field: any) => format(new Date(field), DATE_FORMAT)
@@ -27,8 +27,8 @@ export function TodoItem({ todo }: Props) {
         colorScheme="green"
         pl="2"
         size="lg"
-        checked={!!todo.isDone}
-        onClick={toggleTodo}
+        isChecked={!!todo.isDone}
+        onChange={toggleTodo}
         outlineColor="green" />
 
       <Flex direction="column" flex="1">

@@ -9,11 +9,11 @@ export const todosValidator = {
 
   bodyAdd: runSchema(Joi.object<AddTodo>({
     description: Joi.string().required(),
-    isDone: Joi.boolean().default(false)
+    isDone: Joi.number().valid(0, 1).default(0)
   })),
 
   bodyEdit: runSchema(Joi.object<EditTodo>({
     description: Joi.string(),
-    isDone: Joi.boolean()
+    isDone: Joi.number().valid(0, 1)
   })),
 }
