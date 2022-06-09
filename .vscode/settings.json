@@ -49,5 +49,6 @@
       "comments": false,
       "strings": true
     }
-  }
+  },
+  "thunder-client.saveToWorkspace": true
 }
