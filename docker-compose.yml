@@ -5,7 +5,6 @@ services:
     image: mysql:5
     environment:
       MYSQL_ROOT_PASSWORD: "root"
-      MYSQL_DATABASE: "todos"
     ports:
       - 3306:3306
     healthcheck:
