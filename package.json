@@ -9,7 +9,7 @@
     "start": "concurrently \"cd backend && npm start\" \"cd frontend && npm start\"",
     "backend:db": "cd backend && npm run db",
     "backend:test": "cd backend && npm run test",
-    "compose": "docker-compose down && docker-compose up --force-recreate --build"
+    "compose": "docker-compose down && docker-compose up --build -d"
   },
   "repository": {
     "type": "git",

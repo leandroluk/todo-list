@@ -2,6 +2,7 @@ version: '3'
 
 services:
   mysql:
+    container_name: todo-list-mysql
     image: mysql:5
     environment:
       MYSQL_ROOT_PASSWORD: "root"
@@ -12,8 +13,11 @@ services:
       timeout: 10s
       retries: 10
       start_period: 10s
+    networks:
+      - todo-list
 
   backend:
+    container_name: todo-list-backend
     build: ./backend
     ports:
       - 3001:3001
@@ -22,14 +26,27 @@ services:
         condition: service_healthy
     environment:
       API_PORT: 3001
-      MYSQL_URI: "mysql://root:root@mysql:3306/todos"
+      DB_USER: "root"
+      DB_PASS: "root"
+      DB_NAME: "todos"
+      DB_HOST: "mysql"
+      DB_PORT: 3306
+      DB_DIALECT: "mysql"
+      DB_OPTIONS: "{}"
     healthcheck:
       test: [ "CMD", "curl", "http://localhost:3001/health" ]
       timeout: 10s
       retries: 10
-    command: bash -c "npm run db && npm start"
+    networks:
+      - todo-list
+    command: bash -c "
+        npm i sequelize-cli &&
+        npm run db &&
+        npm start
+      "
 
   frontend:
+    container_name: todo-list-frontend
     build: ./frontend
     depends_on:
       backend:
@@ -38,3 +55,9 @@ services:
       API_URI: "http://localhost:3001"
     ports:
       - 3000:80
+    networks:
+      - todo-list
+
+networks:
+  todo-list:
+    name: todo-list
